@@ -18,17 +18,16 @@ const Movies = () => {
   const [movieArr, setMovieArr] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [search, setSearch] = useState('');
-   
+     
 
   useEffect(() => {
-    if (!search) {
+    if (!query) {
       return;
     }
     const fetchData = async () => {
       setIsLoading(true);
       try {
-      const r = await findQuery(search);
+      const r = await findQuery(query);
       const movieArr = r.map(({ id, name, title }) => ({
         id,
         name,
@@ -51,7 +50,7 @@ const Movies = () => {
     };    
     fetchData();
     
-  }, [search]);
+  }, [query]);
 
   
     const updateQueryString = query => {
@@ -64,8 +63,6 @@ const Movies = () => {
       toast.error('Please enter some word');
       return;
     }
-    setSearch(query);
-    query = '';
   };
 
   return (
