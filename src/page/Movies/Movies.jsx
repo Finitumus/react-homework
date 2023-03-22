@@ -39,7 +39,7 @@ const Movies = () => {
         return setMovieArr(r);
       } else {
         setMovieArr([]);
-        return toast.error(
+        toast.error(
           'Sorry, there are no images matching your search query.'
         );
       }        
