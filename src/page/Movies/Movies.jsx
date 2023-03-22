@@ -53,30 +53,7 @@ const Movies = () => {
     
   }, [search]);
 
-  async function fetchToSearch() {
-    try {
-      setIsLoading(true);
-      const r = await findQuery(query);
-      const movieArr = r.map(({ id, name, title }) => ({
-        id,
-        name,
-        title,
-      }));
-      setMovieArr(movieArr)
-      if (r.length > 0) {
-        return setMovieArr(r);
-      } else {
-        setMovieArr([]);
-        return toast.error(
-          'Sorry, there are no images matching your search query.'
-        );
-      }
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  
     const updateQueryString = query => {
       const nextParams = query !== '' ? { query } : {};
       setSearchParams(nextParams);
