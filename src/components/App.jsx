@@ -9,22 +9,17 @@ const App = () => {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
-
-    const changeFilter = e => {
+  const changeFilter = e => {
       setFilter(e.currentTarget.value );
-    };
-
-    const handleSubmit = obj => {
+   };
+  
+  const handleSubmit = obj => {
      
       const checkContact = contacts.find(
         contact => contact.name.toLowerCase() === obj.name.toLowerCase()
       );
       if (!checkContact) {
         setContacts( contacts => [...contacts, obj] );
-        // console.log(obj)
         return;
       }
       alert(`${obj.name} is already in contacts `);
@@ -41,7 +36,7 @@ const App = () => {
         contact.name.toLowerCase().includes(normalize)
       );
     };
-    
+   
 
       return (
         <div>
