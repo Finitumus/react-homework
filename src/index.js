@@ -15,6 +15,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </PersistGate>
       
     </Provider>
-// deploy test   
+
   </React.StrictMode>
 );
